@@ -72,8 +72,8 @@ city-insights-ai/
 #### Installation
 ```bash
 # Clone and setup
-git clone <repository>
-cd city-insights-ai
+git clone git@github.com:oni1997/mapenew.git
+cd mapenew
 
 # Install dependencies
 cd backend && npm install
