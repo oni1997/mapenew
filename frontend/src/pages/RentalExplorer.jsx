@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Container,
@@ -33,6 +34,7 @@ import { houseRentalsAPI } from '../services/api'
 import RentalCard from '../components/Rentals/RentalCard'
 
 const RentalExplorer = () => {
+  const navigate = useNavigate()
   const [filters, setFilters] = useState({
     location: '',
     minPrice: 0,
@@ -132,8 +134,7 @@ const RentalExplorer = () => {
   }
 
   const handleViewRental = (rental) => {
-    // Navigate to rental details or open modal
-    console.log('View rental:', rental)
+    navigate(`/rentals/${rental._id}`)
   }
 
   const totalPages = rentalsData?.pagination ? 

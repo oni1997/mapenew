@@ -30,7 +30,9 @@ import {
   DirectionsTransit as TransitIcon,
   AttachMoney as MoneyIcon,
   Close as CloseIcon,
-  Map as MapIcon
+  Map as MapIcon,
+  Favorite as FavoriteIcon,
+  FavoriteBorder as FavoriteBorderIcon
 } from '@mui/icons-material'
 import { useQuery } from 'react-query'
 import { useSearchParams } from 'react-router-dom'
@@ -38,6 +40,7 @@ import { Helmet } from 'react-helmet-async'
 
 import { neighborhoodAPI, searchAPI } from '../services/api'
 import { useAppStore } from '../store/appStore'
+import useFavoritesStore from '../store/favoritesStore'
 import MapContainer from '../components/Map/MapContainer'
 
 // Separate component for debounced input to prevent focus loss
@@ -80,6 +83,8 @@ const NeighborhoodExplorer = () => {
     addSelectedNeighborhood,
     removeSelectedNeighborhood
   } = useAppStore()
+
+  const { isNeighborhoodFavorited, toggleNeighborhoodFavorite } = useFavoritesStore()
 
   const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '')
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false)
@@ -408,12 +413,24 @@ const NeighborhoodExplorer = () => {
                               {neighborhood.borough}
                             </Typography>
                           </Box>
-                          <IconButton
-                            size="small"
-                            color={isNeighborhoodSelected(neighborhood) ? 'primary' : 'default'}
-                          >
-                            <AddIcon />
-                          </IconButton>
+                          <Box sx={{ display: 'flex', gap: 1 }}>
+                            <IconButton
+                              size="small"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                toggleNeighborhoodFavorite(neighborhood._id)
+                              }}
+                              color={isNeighborhoodFavorited(neighborhood._id) ? 'error' : 'default'}
+                            >
+                              {isNeighborhoodFavorited(neighborhood._id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              color={isNeighborhoodSelected(neighborhood) ? 'primary' : 'default'}
+                            >
+                              <AddIcon />
+                            </IconButton>
+                          </Box>
                         </Box>
 
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 1 }}>

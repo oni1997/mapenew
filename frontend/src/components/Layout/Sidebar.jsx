@@ -21,6 +21,7 @@ import {
   TrendingUp as TrendingUpIcon,
   Map as MapIcon,
   Analytics as AnalyticsIcon,
+  Favorite as FavoriteIcon,
   Help as HelpIcon,
   Info as InfoIcon,
   Home as HomeIcon
@@ -28,6 +29,7 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import { useAppStore } from '../../store/appStore'
+import useFavoritesStore from '../../store/favoritesStore'
 
 const DRAWER_WIDTH = 240
 
@@ -69,6 +71,12 @@ const menuItems = [
     icon: <TrendingUpIcon />,
     path: '/insights',
     description: 'AI market analysis'
+  },
+  {
+    text: 'Favorites',
+    icon: <FavoriteIcon />,
+    path: '/favorites',
+    description: 'Saved properties & areas'
   }
 ]
 
@@ -92,6 +100,8 @@ const Sidebar = ({ open, onClose }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   
   const { selectedNeighborhoods } = useAppStore()
+  const { getFavoritesCount } = useFavoritesStore()
+  const favoritesCount = getFavoritesCount()
 
   const handleItemClick = (path) => {
     navigate(path)
@@ -165,6 +175,14 @@ const Sidebar = ({ open, onClose }) => {
                   size="small"
                   color="secondary"
                   sx={{ height: 20, fontSize: '0.7rem' }}
+                />
+              )}
+              {item.path === '/favorites' && favoritesCount.total > 0 && (
+                <Chip
+                  label={favoritesCount.total}
+                  size="small"
+                  color="error"
+                  sx={{ height: 20, fontSize: '0.7rem', ml: 0.5 }}
                 />
               )}
             </ListItemButton>

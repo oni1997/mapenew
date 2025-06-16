@@ -22,14 +22,19 @@ import {
   Visibility as ViewIcon
 } from '@mui/icons-material'
 
-const RentalCard = ({ 
-  rental, 
-  onFavorite, 
-  onView, 
+import useFavoritesStore from '../../store/favoritesStore'
+
+const RentalCard = ({
+  rental,
+  onFavorite,
+  onView,
   isFavorited = false,
-  showFullDetails = false 
+  showFullDetails = false
 }) => {
   const theme = useTheme()
+  const { isRentalFavorited, toggleRentalFavorite } = useFavoritesStore()
+
+  const isFavorite = isRentalFavorited(rental._id)
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-ZA', {
@@ -85,7 +90,7 @@ const RentalCard = ({
         
         {/* Favorite Button */}
         <IconButton
-          onClick={() => onFavorite?.(rental)}
+          onClick={() => toggleRentalFavorite(rental._id)}
           sx={{
             position: 'absolute',
             top: 8,
@@ -96,7 +101,7 @@ const RentalCard = ({
             }
           }}
         >
-          {isFavorited ? (
+          {isFavorite ? (
             <FavoriteIcon color="error" />
           ) : (
             <FavoriteBorderIcon />

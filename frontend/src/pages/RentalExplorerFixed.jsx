@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Container,
@@ -28,6 +29,7 @@ import { houseRentalsAPI } from '../services/api'
 import RentalCard from '../components/Rentals/RentalCard'
 
 const RentalExplorerFixed = () => {
+  const navigate = useNavigate()
   const [filters, setFilters] = useState({
     location: '',
     minPrice: 0,
@@ -37,7 +39,7 @@ const RentalExplorerFixed = () => {
     category: '',
     furnished: ''
   })
-  
+
   const [searchQuery, setSearchQuery] = useState('')
   const [page, setPage] = useState(1)
   const [favorites, setFavorites] = useState(new Set())
@@ -138,7 +140,7 @@ const RentalExplorerFixed = () => {
   }
 
   const handleViewRental = (rental) => {
-    console.log('View rental:', rental)
+    navigate(`/rentals/${rental._id}`)
   }
 
   const formatPrice = (price) => {

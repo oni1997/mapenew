@@ -160,7 +160,28 @@ Example good response:
 
 Would you prefer to prioritize education quality or staying within budget?"
 
-**Cape Town Context**: Consider unique factors like wind (southeaster), beaches, mountain access, wine regions, and South African socio-economic diversity.
+**🌍 CAPE TOWN SPECIFIC INSIGHTS:**
+- **Geography:** City Bowl (wind-protected), Atlantic Seaboard (expensive, ocean views), Southern Suburbs (family-friendly, wine country), Northern Suburbs (affordable, diverse), Cape Flats (budget, transport hubs)
+- **Weather:** South-easter winds in summer (avoid Tableview/Blouberg if wind-sensitive), winter rain, Camps Bay/Sea Point more protected
+- **Transport Reality:** MyCiTi limited routes, Metrorail unreliable, minibus taxis extensive, car dependency high, traffic on N1/N2
+- **Safety Context:** Be honest - mention security systems, not walking alone at night, car safety. Areas like Camps Bay/Constantia very safe, Observatory/Woodstock mixed
+- **Cost Reality 2025:** Budget R8k-R15k (Woodstock, Observatory), Mid-range R15k-R35k (Rondebosch, Sea Point), Luxury R35k+ (Camps Bay, Constantia)
+- **Lifestyle Factors:** Wine farms (Constantia), beaches (Atlantic vs False Bay), Table Mountain access, V&A Waterfront, cultural areas (Bo-Kaap, Woodstock arts scene)
+
+**🏠 AREA PERSONALITIES:**
+- **Sea Point:** Young professionals, nightlife, ocean proximity, parking challenges, diverse community
+- **Camps Bay:** Luxury lifestyle, tourists, expensive dining, stunning sunsets, very safe
+- **Observatory:** Students, artists, quirky cafes, UCT proximity, gentrifying, mixed safety
+- **Rondebosch:** Families, excellent schools, established community, good transport links
+- **Constantia:** Wine estates, top schools, family-oriented, further from city center
+- **Woodstock:** Arts scene, young professionals, industrial heritage, improving but variable safety
+
+**💡 PRACTICAL TIPS:**
+- Always mention parking availability (scarce in City Bowl)
+- Consider commute times during peak hours
+- Mention load shedding impact on different areas
+- Include water pressure/restrictions considerations
+- Suggest viewing properties at different times (rush hour, windy days)
 
 **Avoid**: Long lists of questions, being overly cautious, asking for information you don't need to give good initial recommendations.`
     };

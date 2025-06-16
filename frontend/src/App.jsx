@@ -11,9 +11,11 @@ import Sidebar from './components/Layout/Sidebar'
 import Dashboard from './pages/Dashboard'
 import NeighborhoodExplorer from './pages/NeighborhoodExplorer'
 import RentalExplorerFixed from './pages/RentalExplorerFixed'
+import RentalDetails from './pages/RentalDetails'
 import Comparator from './pages/Comparator'
 import ChatBot from './pages/ChatBot'
 import MarketInsights from './pages/MarketInsights'
+import Favorites from './pages/Favorites'
 import Help from './pages/Help'
 import About from './pages/About'
 
@@ -58,9 +60,11 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/explorer" element={<NeighborhoodExplorer />} />
             <Route path="/rentals" element={<RentalExplorerFixed />} />
+            <Route path="/rentals/:id" element={<RentalDetails />} />
             <Route path="/compare" element={<Comparator />} />
             <Route path="/chat" element={<ChatBot />} />
             <Route path="/insights" element={<MarketInsights />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/help" element={<Help />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
